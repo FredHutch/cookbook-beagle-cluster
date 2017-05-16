@@ -12,4 +12,4 @@ version '0.1.0'
 supports 'ubuntu', '>= 14.04'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
-depends 'chef-vault', '~> 0.2.0'
+depends 'chef-vault', '~> 2.1.1'
