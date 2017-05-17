@@ -3,6 +3,8 @@
     "alice": "$6$gqU.oAkkr$pv/FyJ0MdBvn7PyGbQehY7RyckUROhXCjBgkOjDiNX8/XNdQozth.SycjtJtu3OO2SueJSuzu9u769jwXUPhp1",
     "bob": "$6$gqU.oAkkr$pv/FyJ0MdBvn7PyGbQehY7RyckUROhXCjBgkOjDiNX8/XNdQozth.SycjtJtu3OO2SueJSuzu9u769jwXUPhp1",
     "pat": "$6$gqU.oAkkr$pv/FyJ0MdBvn7PyGbQehY7RyckUROhXCjBgkOjDiNX8/XNdQozth.SycjtJtu3OO2SueJSuzu9u769jwXUPhp1"
-  }
+  },
+  "cluster_name": "beagle-tk",
+  "controller": "beagle-ctld"
 }
 

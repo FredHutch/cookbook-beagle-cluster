@@ -4,9 +4,7 @@ driver:
 
 provisioner:
   name: chef_zero
-  # You may wish to disable always updating cookbooks in CI or other testing environments.
-  # For example:
-  #   always_update_cookbooks: <%= !ENV['CI'] %>
+  require_chef_omnibus: 12.16.42
   always_update_cookbooks: true
   data_bags_path: test/integration/default/databags
 
@@ -21,6 +19,7 @@ suites:
     run_list:
       - recipe[beagle-cluster::default]
       - recipe[beagle-cluster::lusers]
+      - recipe[beagle-cluster::node]
     verifier:
       inspec_tests:
         - test/smoke/default

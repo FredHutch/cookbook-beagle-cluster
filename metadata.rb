@@ -13,3 +13,4 @@ supports 'ubuntu', '>= 14.04'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 depends 'chef-vault', '~> 2.1.1'
+depends 'slurm-wlm'
