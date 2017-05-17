@@ -1,0 +1,85 @@
+ClusterName=<%= @config['ClusterName'] %>
+ControlMachine=<%= @config['ControlMachine'] %>
+AuthType=auth/munge
+CacheGroups=0
+CryptoType=crypto/munge
+DisableRootJobs=YES
+
+CheckpointType=checkpoint/none
+JobCheckpointDir=/var/spool/slurm-llnl/checkpoint
+
+FirstJobID=1000
+GroupUpdateForce=600
+JobRequeue=0
+JobSubmitPlugins=default_account,default_qos
+MaxJobCount=25000
+MpiDefault=openmpi
+MpiParams=ports=12000-12999
+ProctrackType=proctrack/linuxproc
+PropagateResourceLimits=NONE
+ReturnToService=2
+SlurmctldPidFile=/run/slurm-llnl/slurmctld.pid
+SlurmctldPort=6817
+
+# Use "%n" with multiple nodes per host
+SlurmdPidFile=/run/slurm-llnl/slurmd.%n.pid
+SlurmdPort=6818
+SlurmdSpoolDir=/var/tmp/slurmd
+
+SlurmUser=slurm
+StateSaveLocation=/var/spool/slurm-llnl/state
+SwitchType=switch/none
+TaskPlugin=task/none
+TmpFs=/loc
+InactiveLimit=0
+KillWait=30
+MessageTimeout=45
+MinJobAge=300
+OverTimeLimit=0
+
+SlurmctldTimeout=2000
+SlurmdTimeout=2000
+Waittime=0
+FastSchedule=0
+
+SchedulerType=sched/backfill
+SchedulerParameters=bf_resolution=360,bf_max_job_user=10,bf_window=10080,bf_continue,defer,
+
+SelectType=select/cons_res
+SelectTypeParameters=CR_Core
+
+PreemptMode=REQUEUE
+PreemptType=preempt/qos
+
+#
+# JOB PRIORITY
+PriorityType=priority/multifactor
+PriorityDecayHalfLife=1-00:00:00
+#PriorityCalcPeriod unset 
+#PriorityFavorSmall unset 
+PriorityMaxAge=1-00:00:00
+#PriorityUsageResetPeriod unset 
+PriorityWeightAge=10
+PriorityWeightFairshare=100000000
+#PriorityWeightPartition unset 
+#PriorityWeightJobSize unset 
+PriorityWeightQOS=1000000
+#
+# LOGGING AND ACCOUNTING
+AccountingStorageEnforce=limits,qos
+AccountingStorageHost=gadget
+AccountingStorageType=accounting_storage/slurmdbd
+
+JobAcctGatherFrequency=60
+JobAcctGatherType=jobacct_gather/linux
+
+DebugFlags=NO_CONF_HASH
+SlurmctldDebug=3
+SlurmctldLogFile=/var/log/slurm-llnl/slurmctld.log
+SlurmdDebug=3
+SlurmdLogFile=/var/log/slurm-llnl/slurmd.%n.log
+SlurmSchedLogFile=/var/log/slurm-llnl/slurmsched.log
+SlurmSchedLogLevel=0
+#
+Include /etc/slurm-llnl/slurm-nodes.conf
+Include /etc/slurm-llnl/slurm-partitions.conf
