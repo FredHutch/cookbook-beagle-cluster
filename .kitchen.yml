@@ -19,9 +19,15 @@ suites:
     run_list:
       - recipe[beagle-cluster::default]
       - recipe[beagle-cluster::lusers]
-      - recipe[beagle-cluster::node]
     verifier:
       inspec_tests:
         - test/smoke/default
         - test/smoke/lusers
+    attributes:
+  - name: slurm
+    run_list:
+      - recipe[beagle-cluster::slurm_core]
+    verifier:
+      inspec_tests:
+        - test/smoke/slurm_core
     attributes:
