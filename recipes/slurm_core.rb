@@ -12,6 +12,12 @@ node.default['slurm-wlm']['config']['slurm']['ClusterName'] = \
 node.default['slurm-wlm']['config']['slurm']['ControlMachine'] = \
   node['beagle']['controller']
 
+directory '/etc/slurm-llnl' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
 template '/etc/slurm-llnl/slurm-nodes.conf' do
   source 'slurm-nodes.conf.erb'
   owner 'root'
