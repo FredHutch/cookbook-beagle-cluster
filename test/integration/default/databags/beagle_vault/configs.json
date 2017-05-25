@@ -5,6 +5,7 @@
     "pat": "$6$gqU.oAkkr$pv/FyJ0MdBvn7PyGbQehY7RyckUROhXCjBgkOjDiNX8/XNdQozth.SycjtJtu3OO2SueJSuzu9u769jwXUPhp1"
   },
   "cluster_name": "beagle-tk",
-  "controller": "beagle-ctld"
+  "controller": "beagle-ctld",
+  "slurm_node_uri": "https://s3-us-west-2.amazonaws.com/beagle-slurm-configs/slurm-nodes.conf"
 }
 

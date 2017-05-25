@@ -18,19 +18,11 @@ directory '/etc/slurm-llnl' do
   mode '0755'
 end
 
-template '/etc/slurm-llnl/slurm-nodes.conf' do
-  source 'slurm-nodes.conf.erb'
-  owner 'root'
-  group 'root'
-  mode '0644'
-end
-
-template '/etc/slurm-llnl/slurm-partitions.conf' do
-  source 'slurm-partitions.conf.erb'
+remote_file '/etc/slurm-llnl/slurm-nodes.conf' do
+  source node['beagle']['configs']['slurm_node_uri']
   owner 'root'
   group 'root'
   mode '0644'
 end
 
 include_recipe 'slurm-wlm'
-
