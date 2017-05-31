@@ -1,0 +1,19 @@
+{
+  "name": "beagle-controller",
+  "description": "Role for beagle controller",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[beagle-cluster::default]",
+    "recipe[beagle-cluster::slurm_core]"
+  ],
+  "env_run_lists": {
+
+  }
+}

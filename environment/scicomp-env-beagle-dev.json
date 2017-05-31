@@ -1,0 +1,15 @@
+{
+  "name": "scicomp-env-beagle-dev",
+  "description": "Environment for beagle cluster development",
+  "cookbook_versions": {
+
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  }
+}
