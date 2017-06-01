@@ -6,6 +6,10 @@
   },
   "cluster_name": "beagle-tk",
   "controller": "beagle-ctld",
-  "slurm_node_uri": "https://s3-us-west-2.amazonaws.com/scicomp-beagle-configs/slurm-nodes.conf"
+  "slurm_node_uri": "https://s3-us-west-2.amazonaws.com/scicomp-beagle-configs/slurm-nodes.conf",
+  "spooldir": "/var/spool/slurm-wlm",
+  "etcdir": "/etc/slurm-wlm",
+  "rundir": "/run/slurm-wlm",
+  "logdir": "/var/log/slurm-wlm"
 }
 

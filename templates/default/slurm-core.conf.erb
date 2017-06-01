@@ -6,28 +6,28 @@ CryptoType=crypto/munge
 DisableRootJobs=YES
 
 CheckpointType=checkpoint/none
-JobCheckpointDir=/var/spool/slurm-llnl/checkpoint
+JobCheckpointDir=<%= @config['JobCheckpointDir'] %>
 
 FirstJobID=1000
 GroupUpdateForce=600
 JobRequeue=0
-JobSubmitPlugins=default_account,default_qos
+#JobSubmitPlugins=default_account,default_qos
 MaxJobCount=25000
 MpiDefault=openmpi
 MpiParams=ports=12000-12999
 ProctrackType=proctrack/linuxproc
 PropagateResourceLimits=NONE
 ReturnToService=2
-SlurmctldPidFile=/run/slurm-llnl/slurmctld.pid
+SlurmctldPidFile=<%= @config['SlurmctldPidFile'] %>
 SlurmctldPort=6817
 
 # Use "%n" with multiple nodes per host
-SlurmdPidFile=/run/slurm-llnl/slurmd.%n.pid
+SlurmdPidFile=<%= @config['SlurmdPidFile'] %>
 SlurmdPort=6818
-SlurmdSpoolDir=/var/tmp/slurmd
+SlurmdSpoolDir=<%= @config['SlurmdSpoolDir'] %>
 
 SlurmUser=slurm
-StateSaveLocation=/var/spool/slurm-llnl/state
+StateSaveLocation=<%= @config['StateSaveLocation'] %>
 SwitchType=switch/none
 TaskPlugin=task/none
 TmpFs=/loc
@@ -42,8 +42,7 @@ SlurmdTimeout=2000
 Waittime=0
 FastSchedule=0
 
-SchedulerType=sched/backfill
-SchedulerParameters=bf_resolution=360,bf_max_job_user=10,bf_window=10080,bf_continue,defer,
+SchedulerType=sched/builtin
 
 SelectType=select/cons_res
 SelectTypeParameters=CR_Core
@@ -65,20 +64,15 @@ PriorityWeightFairshare=100000000
 #PriorityWeightJobSize unset 
 PriorityWeightQOS=1000000
 #
-# LOGGING AND ACCOUNTING
-AccountingStorageEnforce=limits,qos
-AccountingStorageHost=gadget
-AccountingStorageType=accounting_storage/slurmdbd
 
 JobAcctGatherFrequency=60
-JobAcctGatherType=jobacct_gather/linux
 
 DebugFlags=NO_CONF_HASH
 SlurmctldDebug=3
-SlurmctldLogFile=/var/log/slurm-llnl/slurmctld.log
+SlurmctldLogFile=<%= @config['SlurmctldLogFile'] %>
 SlurmdDebug=3
-SlurmdLogFile=/var/log/slurm-llnl/slurmd.%n.log
-SlurmSchedLogFile=/var/log/slurm-llnl/slurmsched.log
+SlurmdLogFile=<%= @config['SlurmdLogFile'] %>
+SlurmSchedLogFile=<%= @config['SlurmSchedLogFile'] %>
 SlurmSchedLogLevel=0
 #
 Include /etc/slurm-llnl/slurm-nodes.conf
