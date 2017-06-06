@@ -11,6 +11,9 @@
       "controller": "beagle-dev-ctld"
     },
     "slurm-wlm": {
+      "services": {
+        "slurmctld": "slurmctld"
+      },
       "repository": {
         "uri": "http://octopus.fhcrc.org/aptly/public"
       }
@@ -21,7 +24,8 @@
     "role[cit-base]",
     "role[scicomp-base]",
     "recipe[beagle-cluster::default]",
-    "recipe[beagle-cluster::slurm_core]"
+    "recipe[beagle-cluster::slurm_core]",
+    "recipe[beagle-cluster::slurm_controller]"
   ],
   "env_run_lists": {
 
