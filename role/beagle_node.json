@@ -22,6 +22,7 @@
     "role[scicomp-base]",
     "recipe[beagle-cluster::default]",
     "recipe[beagle-cluster::slurm_core]"
+    "recipe[beagle-cluster::slurm_daemon]"
   ],
   "env_run_lists": {
 
