@@ -32,6 +32,15 @@ suites:
       inspec_tests:
         - test/smoke/slurm_core
     attributes:
+  - name: daemon
+    run_list:
+      - recipe[beagle-cluster::default]
+      - recipe[beagle-cluster::slurm_core]
+      - recipe[beagle-cluster::slurm_daemon]
+    verifier:
+      inspec_tests:
+        - test/smoke/slurm_core
+    attributes:
   - name: controller
     run_list:
       - recipe[beagle-cluster::default]
