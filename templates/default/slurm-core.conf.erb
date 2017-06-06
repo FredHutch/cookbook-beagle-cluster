@@ -75,4 +75,4 @@ SlurmdLogFile=<%= @config['SlurmdLogFile'] %>
 SlurmSchedLogFile=<%= @config['SlurmSchedLogFile'] %>
 SlurmSchedLogLevel=0
 #
-Include /etc/slurm-llnl/slurm-nodes.conf
+Include <%= @config['_config_path'] %>/slurm-nodes.conf

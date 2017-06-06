@@ -21,6 +21,7 @@ node.override['slurm-wlm']['files'] = {
 }
 
 slurm_paths = {
+  '_config_path' => node['beagle']['configs']['etcdir'],
   'JobCheckpointDir' => "#{node['beagle']['configs']['spooldir']}/checkpoint",
   'SlurmdSpoolDir' => "#{node['beagle']['configs']['spooldir']}/slurmd",
   'StateSaveLocation' => "#{node['beagle']['configs']['spooldir']}/state",
