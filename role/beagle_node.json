@@ -6,10 +6,20 @@
 
   },
   "override_attributes": {
-
+    "beagle": {
+      "cluster_name": "beagle",
+      "controller": "beagle-dev-ctld"
+    },
+    "slurm-wlm": {
+      "repository": {
+        "uri": "http://octopus.fhcrc.org/aptly/public"
+      }
+    }
   },
   "chef_type": "role",
   "run_list": [
+    "role[cit-base]",
+    "role[scicomp-base]",
     "recipe[beagle-cluster::default]",
     "recipe[beagle-cluster::slurm_core]"
   ],

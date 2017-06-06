@@ -42,4 +42,3 @@ remote_file "#{node['beagle']['configs']['etcdir']}/slurm-nodes.conf" do
   owner 'root'
   group 'root'
 end
-

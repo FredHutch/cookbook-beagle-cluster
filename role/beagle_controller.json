@@ -18,6 +18,8 @@
   },
   "chef_type": "role",
   "run_list": [
+    "role[cit-base]",
+    "role[scicomp-base]",
     "recipe[beagle-cluster::default]",
     "recipe[beagle-cluster::slurm_core]"
   ],
