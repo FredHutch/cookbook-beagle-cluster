@@ -6,7 +6,15 @@
 
   },
   "override_attributes": {
-
+    "beagle": {
+      "cluster_name": "beagle",
+      "controller": "beagle-dev-ctld"
+    },
+    "slurm-wlm": {
+      "repository": {
+        "uri": "http://octopus.fhcrc.org/aptly/public"
+      }
+    }
   },
   "chef_type": "role",
   "run_list": [
