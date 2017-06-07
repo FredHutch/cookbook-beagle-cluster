@@ -11,7 +11,7 @@ template '/etc/default/slurmctld' do
   owner 'root'
   mode '0644'
   variables(
-    'config' => node['slurm-wlm']['config']['slurm']
+    'config_path' => node['beagle']['configs']['etcdir']
   )
   notifies :reload, "service[#{node['slurm-wlm']['services']['slurmctld']}]", :delayed
 end
