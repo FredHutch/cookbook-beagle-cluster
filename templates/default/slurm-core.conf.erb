@@ -75,4 +75,16 @@ SlurmdLogFile=<%= @config['SlurmdLogFile'] %>
 SlurmSchedLogFile=<%= @config['SlurmSchedLogFile'] %>
 SlurmSchedLogLevel=0
 #
-Include <%= @config['_config_path'] %>/slurm-nodes.conf
+# Attribute Overrides Here
+#
+<% @config.each_pair do |p, v| %>
+<% unless p == 'Include' %>
+<%= "#{p}=#{v}" %>
+<% end %>
+<% end %>
+
+<% if @config.has_key? :Include %>
+<% @config['Include'].each do |path| %>
+Include <%= path %>
+<% end %>
+<% end %>

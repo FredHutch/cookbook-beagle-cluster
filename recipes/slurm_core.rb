@@ -21,7 +21,7 @@ node.override['slurm-wlm']['files'] = {
 }
 
 slurm_paths = {
-  '_config_path' => node['beagle']['configs']['etcdir'],
+  'Include' => ["#{node['beagle']['configs']['etcdir']}/slurm-nodes.conf"],
   'JobCheckpointDir' => "#{node['beagle']['configs']['spooldir']}/checkpoint",
   'SlurmdSpoolDir' => "#{node['beagle']['configs']['spooldir']}/slurmd",
   'StateSaveLocation' => "#{node['beagle']['configs']['spooldir']}/state",
@@ -32,7 +32,8 @@ slurm_paths = {
   'SlurmSchedLogFile' => "#{node['beagle']['configs']['logdir']}/sched.log"
 }
 
-node.override['slurm-wlm']['config']['slurm'] = node['beagle']['configs'].merge(slurm_paths)
+node.override['slurm-wlm']['config']['slurm'] = \
+  node['beagle']['configs']['slurm_conf'].merge(slurm_paths)
 
 include_recipe 'slurm-wlm'
 
