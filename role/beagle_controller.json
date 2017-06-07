@@ -12,7 +12,8 @@
     },
     "slurm-wlm": {
       "services": {
-        "slurmctld": "slurmctld"
+        "slurmctld": "slurmctld",
+        "slurmd": "slurmd"
       },
       "repository": {
         "uri": "http://octopus.fhcrc.org/aptly/public"
