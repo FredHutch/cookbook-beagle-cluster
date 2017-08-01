@@ -7,9 +7,10 @@
 include_recipe 'slurm-wlm::slurmctld'
 include_recipe 'poise-python'
 
-# Add boto3
+# Add boto3 and hostlist for power (EC2) control
 python_runtime '3'
 python_package 'boto3'
+python_package 'python-hostlist'
 
 template '/var/lib/slurm-llnl/slurm-power-control.py' do
   source 'slurm-power-control.py.erb'
