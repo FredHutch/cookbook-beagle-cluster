@@ -5,6 +5,11 @@
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
 include_recipe 'slurm-wlm::slurmctld'
+include_recipe 'poise-python'
+
+# Add boto3
+python_runtime '3'
+python_package 'boto3'
 
 template '/var/lib/slurm-llnl/slurm-power-control.py' do
   source 'slurm-power-control.py.erb'
