@@ -5,6 +5,7 @@
     "pat": "$6$gqU.oAkkr$pv/FyJ0MdBvn7PyGbQehY7RyckUROhXCjBgkOjDiNX8/XNdQozth.SycjtJtu3OO2SueJSuzu9u769jwXUPhp1"
   },
   "slurm_node_uri": "https://s3-us-west-2.amazonaws.com/scicomp-beagle-configs/slurm-nodes.conf",
+  "slurm_partitions_uri": "https://s3-us-west-2.amazonaws.com/scicomp-beagle-configs/slurm-partitions.conf",
   "spooldir": "/var/spool/slurm-llnl",
   "etcdir": "/etc/slurm-llnl",
   "rundir": "/run/slurm-llnl",

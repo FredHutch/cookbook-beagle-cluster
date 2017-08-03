@@ -21,7 +21,10 @@ node.override['slurm-wlm']['files'] = {
 }
 
 slurm_paths = {
-  'Include' => ["#{node['beagle']['configs']['etcdir']}/slurm-nodes.conf"],
+  'Include' => [
+    "#{node['beagle']['configs']['etcdir']}/slurm-nodes.conf",
+    "#{node['beagle']['configs']['etcdir']}/slurm-partitions.conf"
+  ],
   'JobCheckpointDir' => "#{node['beagle']['configs']['spooldir']}/checkpoint",
   'SlurmdSpoolDir' => "#{node['beagle']['configs']['spooldir']}/slurmd",
   'StateSaveLocation' => "#{node['beagle']['configs']['spooldir']}/state",
@@ -36,6 +39,13 @@ node.override['slurm-wlm']['config']['slurm'] = \
   node['beagle']['configs']['slurm_conf'].merge(slurm_paths)
 
 include_recipe 'slurm-wlm'
+
+remote_file "#{node['beagle']['configs']['etcdir']}/slurm-partitions.conf" do
+  source node['beagle']['configs']['slurm_partitions_uri']
+  mode '0644'
+  owner 'root'
+  group 'root'
+end
 
 remote_file "#{node['beagle']['configs']['etcdir']}/slurm-nodes.conf" do
   source node['beagle']['configs']['slurm_node_uri']
