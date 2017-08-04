@@ -14,7 +14,7 @@ import boto3
 import logging
 logging.basicConfig(
         filename='/var/log/slurm-llnl/slurm-power-control.log',
-        level=logging.DEBUG
+        level=logging.INFO
         )
 
 # Uses NSC hostlist (https://www.nsc.liu.se/~kent/python-hostlist/)
@@ -30,7 +30,7 @@ import hostlist
 
 action = os.path.basename(sys.argv[0])
 nodelist_raw = sys.argv[1]
-logging.debug("Starting: action {} on nodes {}".format(action, nodelist_raw))
+logging.info("Starting: action {} on nodes {}".format(action, nodelist_raw))
 
 nodelist = hostlist.expand_hostlist(nodelist_raw)
 
@@ -56,8 +56,8 @@ for r in response['Reservations']:
 
 logging.debug("acting on instances {}".format(instance_ids))
 if action == 'resume':
-    logging.debug("Resuming/starting instances")
+    logging.info("Resuming/starting instances: {}".format(instance_ids))
     response = ec2.start_instances(InstanceIds=instance_ids)
 elif action == 'suspend':
-    logging.debug("Suspending/stopping instances")
+    logging.info("Suspending/stopping instances: {}".format(instance_ids))
     response = ec2.stop_instances(InstanceIds=instance_ids)
