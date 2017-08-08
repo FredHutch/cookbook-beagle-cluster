@@ -8,6 +8,7 @@ node.override['slurm-wlm']['templates']['slurm_conf'] = 'slurm-core.conf.erb'
 node.override['slurm-wlm']['services']['slurmd'] = 'slurmd'
 node.override['slurm-wlm']['services']['slurmctld'] = 'slurmctld'
 
+node.override['slurm-wlm']['packages']['client'] = 'slurm-client'
 node.override['slurm-wlm']['packages']['slurmctld'] = 'slurmctld'
 node.override['slurm-wlm']['packages']['slurmd'] = 'slurmd'
 node.override['slurm-wlm']['packages']['slurmdbd'] = 'slurmdbd'
