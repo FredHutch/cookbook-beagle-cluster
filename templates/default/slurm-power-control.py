@@ -39,16 +39,26 @@ logging.debug("EC2 client connection complete")
 
 # build filter list:
 
+# Only instances with names matching those in the nodelist
 instance_filter = [{'Name': 'tag:Name', 'Values': nodelist }]
+
+# Only instances running/stopped
+instance_filter.append(
+  {'Name': 'instance-state-name', 'Values': ['stopped', 'running']}
+)
 
 logging.debug("describing instances with filter {}".format(instance_filter))
 response = ec2.describe_instances( Filters = instance_filter )
-logging.debug("complete, {} records found".format(len(response['Reservations'])))
+logging.debug(
+    "complete, {} records found".format(len(response['Reservations']))
+)
 
+# check for non-empty result
+if len(response['Reservations']) == 0:
+    logging.debug("Filter returned empty list {}".format(nodelist))
+    raise NameError("name(s) not found")
 # Build list of instances from this response.  The instance id is found in 
 # r['Reservations'][N]['Instances'][0]['InstanceId']
-
-# Better way of doing this must exist...
 
 instance_ids = []
 for r in response['Reservations']:

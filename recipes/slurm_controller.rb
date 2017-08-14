@@ -13,7 +13,7 @@ python_package 'boto3'
 python_package 'python-hostlist'
 
 template '/var/lib/slurm-llnl/slurm-power-control.py' do
-  source 'slurm-power-control.py.erb'
+  source 'slurm-power-control.py'
   owner 'root'
   mode '0755'
 end
