@@ -13,5 +13,5 @@ node.override['slurm-wlm']['packages']['slurmctld'] = 'slurmctld'
 node.override['slurm-wlm']['packages']['slurmd'] = 'slurmd'
 node.override['slurm-wlm']['packages']['slurmdbd'] = 'slurmdbd'
 
-node.override['app']['server'] = 'scdata'
-node.override['app']['path'] = '/scdata_01_S20/app'
+node.override['app']['server'] = 'scdata02'
+node.override['app']['path'] = '/app'
