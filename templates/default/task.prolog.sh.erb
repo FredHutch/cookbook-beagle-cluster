@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "export SCRATCH=/mnt/<%= @config['ClusterName'] %>/scratch"
+echo "export SCRATCH=/mnt/<%= @config['ClusterName'] %>/scratch/${SLURM_JOB_ID}"
