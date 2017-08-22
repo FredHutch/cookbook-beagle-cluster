@@ -34,7 +34,8 @@ slurm_paths = {
   'SlurmdLogFile' => "#{node['beagle']['configs']['logdir']}/slurmd.%n.log",
   'SlurmSchedLogFile' => "#{node['beagle']['configs']['logdir']}/sched.log",
   'Prolog' => "#{node['beagle']['configs']['etcdir']}/slurmd.prolog",
-  'Epilog' => "#{node['beagle']['configs']['etcdir']}/slurmd.epilog"
+  'Epilog' => "#{node['beagle']['configs']['etcdir']}/slurmd.epilog",
+  'TaskProlog' => "#{node['beagle']['configs']['etcdir']}/task.prolog.sh"
 }
 
 node.override['slurm-wlm']['config']['slurm'] = \
@@ -67,6 +68,14 @@ end
 template 'slurmd.epilog' do
   path "#{node['beagle']['configs']['etcdir']}/slurmd.epilog"
   source 'slurmd.epilog.erb'
+  mode '0755'
+  owner 'root'
+  group 'root'
+end
+
+template 'task.prolog.sh' do
+  path "#{node['beagle']['configs']['etcdir']}/task.prolog.sh"
+  source 'task.prolog.sh.erb'
   mode '0755'
   owner 'root'
   group 'root'
