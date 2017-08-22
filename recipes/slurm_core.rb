@@ -32,7 +32,9 @@ slurm_paths = {
   'SlurmctldLogFile' => "#{node['beagle']['configs']['logdir']}/slurmctld.log",
   'SlurmdPidFile' => "#{node['beagle']['configs']['rundir']}/slurmd.%n.pid",
   'SlurmdLogFile' => "#{node['beagle']['configs']['logdir']}/slurmd.%n.log",
-  'SlurmSchedLogFile' => "#{node['beagle']['configs']['logdir']}/sched.log"
+  'SlurmSchedLogFile' => "#{node['beagle']['configs']['logdir']}/sched.log",
+  'Prolog' => "#{node['beagle']['configs']['etcdir']}/slurmd.prolog",
+  'Epilog' => "#{node['beagle']['configs']['etcdir']}/slurmd.epilog"
 }
 
 node.override['slurm-wlm']['config']['slurm'] = \
@@ -50,6 +52,22 @@ end
 remote_file "#{node['beagle']['configs']['etcdir']}/slurm-nodes.conf" do
   source node['beagle']['configs']['slurm_node_uri']
   mode '0644'
+  owner 'root'
+  group 'root'
+end
+
+template 'slurmd.prolog' do
+  path "#{node['beagle']['configs']['etcdir']}/slurmd.prolog"
+  source 'slurmd.prolog.erb'
+  mode '0755'
+  owner 'root'
+  group 'root'
+end
+
+template 'slurmd.epilog' do
+  path "#{node['beagle']['configs']['etcdir']}/slurmd.epilog"
+  source 'slurmd.epilog.erb'
+  mode '0755'
   owner 'root'
   group 'root'
 end

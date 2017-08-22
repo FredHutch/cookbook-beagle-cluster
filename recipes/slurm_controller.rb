@@ -33,5 +33,8 @@ template '/etc/default/slurmctld' do
   variables(
     'config_path' => node['beagle']['configs']['etcdir']
   )
-  notifies :reload, "service[#{node['slurm-wlm']['services']['slurmctld']}]", :delayed
+  notifies \
+    :reload, \
+    "service[#{node['slurm-wlm']['services']['slurmctld']}]", \
+    :delayed
 end
