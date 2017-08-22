@@ -60,6 +60,9 @@ end
 template 'slurmd.prolog' do
   path "#{node['beagle']['configs']['etcdir']}/slurmd.prolog"
   source 'slurmd.prolog.erb'
+  variables(
+    'config' => node['slurm-wlm']['config']['slurm']
+  )
   mode '0755'
   owner 'root'
   group 'root'
@@ -68,6 +71,9 @@ end
 template 'slurmd.epilog' do
   path "#{node['beagle']['configs']['etcdir']}/slurmd.epilog"
   source 'slurmd.epilog.erb'
+  variables(
+    'config' => node['slurm-wlm']['config']['slurm']
+  )
   mode '0755'
   owner 'root'
   group 'root'
@@ -76,6 +82,9 @@ end
 template 'task.prolog.sh' do
   path "#{node['beagle']['configs']['etcdir']}/task.prolog.sh"
   source 'task.prolog.sh.erb'
+  variables(
+    'config' => node['slurm-wlm']['config']['slurm']
+  )
   mode '0755'
   owner 'root'
   group 'root'

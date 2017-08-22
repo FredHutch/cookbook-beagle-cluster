@@ -2,6 +2,10 @@
 node.default['beagle']['vault_name'] = 'beagle_vault'
 node.default['beagle']['cluster_name'] = 'beagle'
 node.default['beagle']['controller'] = 'beagle-ctld'
+
+default['slurm-wlm']['repository']['uri'] = \
+  'http://octopus.fhcrc.org/aptly/public'
+
 node.override['slurm-wlm']['templates']['cookbook'] = 'beagle-cluster'
 node.override['slurm-wlm']['templates']['slurm_conf'] = 'slurm-core.conf.erb'
 
