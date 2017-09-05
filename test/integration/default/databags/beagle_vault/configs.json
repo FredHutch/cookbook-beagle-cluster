@@ -10,6 +10,7 @@
   "etcdir": "/etc/slurm-llnl",
   "rundir": "/run/slurm-llnl",
   "logdir": "/var/log/slurm-llnl",
+  "state_save_uri": "",
   "slurm_conf": {
     "ClusterName": "beagle-tk",
     "ControlMachine": "beagle-ctld",
@@ -60,4 +61,3 @@
     "SlurmSchedLogLevel": "0"
   }
 }
-

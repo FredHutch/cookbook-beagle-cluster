@@ -26,6 +26,16 @@ link '/var/lib/slurm-llnl/suspend' do
   to '/var/lib/slurm-llnl/slurm-power-control.py'
 end
 
+# Create mountpoint for state directory (if requested)
+mount 'state_save_location' do
+  mount_point node['beagle']['configs']['StateSaveLocation']
+  device node['beagle']['configs']['state_save_uri']
+  fstype 'nfs4'
+  options 'rw'
+  action [:mount, :enable]
+  not_if { node['beagle']['configs']['state_save_uri'] == '' }
+end
+
 template '/etc/default/slurmctld' do
   source 'slurmctld.default.erb'
   owner 'root'
