@@ -10,7 +10,11 @@
   "etcdir": "/etc/slurm-llnl",
   "rundir": "/run/slurm-llnl",
   "logdir": "/var/log/slurm-llnl",
-  "state_save_uri": "",
+  "state_save": {
+    "device": "/var/tmp",
+    "fstype": "auto",
+    "options": "bind"
+  },
   "slurm_conf": {
     "ClusterName": "beagle-tk",
     "ControlMachine": "beagle-ctld",
@@ -58,6 +62,8 @@
     "DebugFlags": "NO_CONF_HASH",
     "SlurmctldDebug": "3",
     "SlurmdDebug": "3",
-    "SlurmSchedLogLevel": "0"
+    "SlurmSchedLogLevel": "0",
+    "StateSaveLocation": "/var/spool/slurm-llnl/state"
+
   }
 }
