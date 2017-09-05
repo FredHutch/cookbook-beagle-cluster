@@ -20,5 +20,3 @@ end
 link '/etc/rc3.d/S19chef-atboot' do
   to '/etc/init.d/chef-atboot'
 end
-
-
