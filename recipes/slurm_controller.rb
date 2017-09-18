@@ -27,8 +27,7 @@ link '/var/lib/slurm-llnl/suspend' do
 end
 
 # Create mountpoint for state directory (if requested)
-mount 'remote slurm state location' do
-  mount_point node['beagle']['configs']['slurm_conf']['StateSaveLocation']
+mount node['beagle']['configs']['slurm_conf']['StateSaveLocation'] do
   device node['beagle']['configs']['state_save']['device']
   fstype node['beagle']['configs']['state_save']['fstype']
   options node['beagle']['configs']['state_save']['options']
