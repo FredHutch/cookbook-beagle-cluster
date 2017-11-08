@@ -1,2 +1,5 @@
 #!/bin/bash
 echo "export SCRATCH=/mnt/<%= @config['ClusterName'] %>/scratch/${SLURM_JOB_ID}"
+echo "export TMPDIR=/mnt/<%= @config['ClusterName'] %>/scratch/${SLURM_JOBID}"
+echo "export DELETE10=/mnt/<%= @config['ClusterName'] %>/delete10/${SLURM_JOB_ACCOUNT}"
+#
