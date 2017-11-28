@@ -19,6 +19,7 @@ suites:
     run_list:
       - recipe[beagle-cluster::default]
       - recipe[beagle-cluster::lusers]
+      - recipe[beagle-cluster::lusers]
     verifier:
       inspec_tests:
         - test/smoke/default
@@ -35,12 +36,21 @@ suites:
   - name: daemon
     run_list:
       - recipe[beagle-cluster::default]
+      - recipe[beagle-cluster::mounts]
       - recipe[beagle-cluster::slurm_core]
       - recipe[beagle-cluster::slurm_daemon]
     verifier:
       inspec_tests:
         - test/smoke/slurm_core
     attributes:
+      "beagle":
+        "mounts":
+          "/app":
+            "device": "fserv:/path"
+            "fstype": "nfs"
+            "options": "ro"
+            "actions": 
+              - "enable"
   - name: controller
     run_list:
       - recipe[beagle-cluster::default]

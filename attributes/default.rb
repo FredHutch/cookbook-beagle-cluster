@@ -16,3 +16,11 @@ node.override['slurm-wlm']['packages']['client'] = 'slurm-client'
 node.override['slurm-wlm']['packages']['slurmctld'] = 'slurmctld'
 node.override['slurm-wlm']['packages']['slurmd'] = 'slurmd'
 node.override['slurm-wlm']['packages']['slurmdbd'] = 'slurmdbd'
+
+# node.default['beagle']['mounts'] = {
+#   '/app' =>  {
+#     'device' => 'fserv:/path',
+#     'fstype' => 'nfs',
+#     'options' => 'ro'
+#   }
+# }
