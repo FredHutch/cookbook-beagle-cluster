@@ -10,8 +10,8 @@ if [ -d "$SCRATCH_ROOT" ]; then
     fi
 fi
 
-sudo mkdir -p /loc/scratch/${SLURM_JOB_ID}
-sudo chown ${SLURM_JOB_USER} /loc/scratch/${SLURM_JOB_ID}
+mkdir -p /loc/scratch/${SLURM_JOB_ID}
+chown ${SLURM_JOB_USER} /loc/scratch/${SLURM_JOB_ID}
 
 echo "created scratch directories"
 
