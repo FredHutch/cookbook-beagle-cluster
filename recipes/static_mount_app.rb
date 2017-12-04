@@ -11,3 +11,11 @@ delete_lines 'remove auto /app' do
   path node['autofs']['/-']['map']
   pattern '^/app*'
 end
+
+service 'autofs' do
+  action :restart
+end
+
+service 'mountall' do
+  action :start
+end
