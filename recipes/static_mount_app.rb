@@ -8,6 +8,6 @@
 delete_resource(:map_entry, '/app')
 
 delete_lines 'remove auto /app' do
-  path node['beagle']['autofs']['/-']['map']
+  path node['autofs']['/-']['map']
   pattern '^/app*'
 end
