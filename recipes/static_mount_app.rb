@@ -16,8 +16,3 @@ end
 service 'autofs' do
   action :restart
 end
-
-execute 'mount_app' do
-  command '/bin/mount /app || echo discarding error $?'
-  action :nothing
-end
