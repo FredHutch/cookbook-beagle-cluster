@@ -6,7 +6,7 @@ provisioner:
   name: chef_zero
   require_chef_omnibus: 12.16.42
   always_update_cookbooks: true
-  data_bags_path: test/integration/default/databags
+  data_bags_path: test/integration/default/data_bags
 
 verifier:
   name: inspec
