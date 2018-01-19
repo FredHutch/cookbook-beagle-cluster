@@ -25,6 +25,37 @@ suites:
         - test/smoke/default
         - test/smoke/lusers
     attributes:
+      "beagle":
+        "configs":
+          "users":
+            "alice": "$6$gqU.oAkkr$pv/FyJ0MdBvn7PyGbQehY7RyckUROhXCjBgkOjDiNX8/XNdQozth.SycjtJtu3OO2SueJSuzu9u769jwXUPhp1"
+            "bob": "$6$gqU.oAkkr$pv/FyJ0MdBvn7PyGbQehY7RyckUROhXCjBgkOjDiNX8/XNdQozth.SycjtJtu3OO2SueJSuzu9u769jwXUPhp1"
+            "pat": "$6$gqU.oAkkr$pv/FyJ0MdBvn7PyGbQehY7RyckUROhXCjBgkOjDiNX8/XNdQozth.SycjtJtu3OO2SueJSuzu9u769jwXUPhp1"
+          "cluster_name": "testkitchn"
+          "controller": "testkitchn-ctld"
+          "slurm_node_uri": "https://s3-us-west-2.amazonaws.com/fh-scicomp-beagle-configs/slurm-nodes.conf"
+          "slurm_partitions_uri": "https://s3-us-west-2.amazonaws.com/fh-scicomp-beagle-configs/slurm-partitions.conf"
+          "spooldir": "/var/spool/slurm-llnl"
+          "etcdir": "/etc/slurm-llnl"
+          "rundir": "/run/slurm-llnl"
+          "logdir": "/var/log/slurm-llnl"
+          "state_save":
+            "device": "scdata-hse.fhcrc.org:/data/controller/state"
+            "fstype": "nfs4"
+            "options": "rw"
+          "slurm_conf":
+            "ClusterName": "testkitchn"
+            "ControlMachine": "testkitchn-ctld"
+            "AuthType": "auth/munge"
+            "CacheGroups": '0'
+            "CryptoType": "crypto/munge"
+        "mounts":
+          "/app":
+            "device": "fserv:/path"
+            "fstype": "nfs"
+            "options": "ro"
+            "actions":
+              - "enable"
   - name: slurm
     run_list:
       - recipe[beagle-cluster::default]
@@ -33,6 +64,33 @@ suites:
       inspec_tests:
         - test/smoke/slurm_core
     attributes:
+      "beagle":
+        "configs":
+          "cluster_name": "testkitchn"
+          "controller": "testkitchn-ctld"
+          "slurm_node_uri": "https://s3-us-west-2.amazonaws.com/fh-scicomp-beagle-configs/slurm-nodes.conf"
+          "slurm_partitions_uri": "https://s3-us-west-2.amazonaws.com/fh-scicomp-beagle-configs/slurm-partitions.conf"
+          "spooldir": "/var/spool/slurm-llnl"
+          "etcdir": "/etc/slurm-llnl"
+          "rundir": "/run/slurm-llnl"
+          "logdir": "/var/log/slurm-llnl"
+          "state_save":
+            "device": "scdata-hse.fhcrc.org:/data/controller/state"
+            "fstype": "nfs4"
+            "options": "rw"
+          "slurm_conf":
+            "ClusterName": "testkitchn"
+            "ControlMachine": "testkitchn-ctld"
+            "AuthType": "auth/munge"
+            "CacheGroups": '0'
+            "CryptoType": "crypto/munge"
+        "mounts":
+          "/app":
+            "device": "fserv:/path"
+            "fstype": "nfs"
+            "options": "ro"
+            "actions":
+              - "enable"
   - name: daemon
     run_list:
       - recipe[beagle-cluster::default]
@@ -44,12 +102,31 @@ suites:
         - test/smoke/slurm_core
     attributes:
       "beagle":
+        "configs":
+          "cluster_name": "testkitchn"
+          "controller": "testkitchn-ctld"
+          "slurm_node_uri": "https://s3-us-west-2.amazonaws.com/fh-scicomp-beagle-configs/slurm-nodes.conf"
+          "slurm_partitions_uri": "https://s3-us-west-2.amazonaws.com/fh-scicomp-beagle-configs/slurm-partitions.conf"
+          "spooldir": "/var/spool/slurm-llnl"
+          "etcdir": "/etc/slurm-llnl"
+          "rundir": "/run/slurm-llnl"
+          "logdir": "/var/log/slurm-llnl"
+          "state_save":
+            "device": "scdata-hse.fhcrc.org:/data/controller/state"
+            "fstype": "nfs4"
+            "options": "rw"
+          "slurm_conf":
+            "ClusterName": "testkitchn"
+            "ControlMachine": "testkitchn-ctld"
+            "AuthType": "auth/munge"
+            "CacheGroups": '0'
+            "CryptoType": "crypto/munge"
         "mounts":
           "/app":
             "device": "fserv:/path"
             "fstype": "nfs"
             "options": "ro"
-            "actions": 
+            "actions":
               - "enable"
   - name: controller
     run_list:
@@ -60,3 +137,30 @@ suites:
       inspec_tests:
         - test/smoke/slurm_core
     attributes:
+      "beagle":
+        "configs":
+          "cluster_name": "testkitchn"
+          "controller": "testkitchn-ctld"
+          "slurm_node_uri": "https://s3-us-west-2.amazonaws.com/fh-scicomp-beagle-configs/slurm-nodes.conf"
+          "slurm_partitions_uri": "https://s3-us-west-2.amazonaws.com/fh-scicomp-beagle-configs/slurm-partitions.conf"
+          "spooldir": "/var/spool/slurm-llnl"
+          "etcdir": "/etc/slurm-llnl"
+          "rundir": "/run/slurm-llnl"
+          "logdir": "/var/log/slurm-llnl"
+          "state_save":
+            "device": "scdata-hse.fhcrc.org:/data/controller/state"
+            "fstype": "nfs4"
+            "options": "rw"
+          "slurm_conf":
+            "ClusterName": "testkitchn"
+            "ControlMachine": "testkitchn-ctld"
+            "AuthType": "auth/munge"
+            "CacheGroups": '0'
+            "CryptoType": "crypto/munge"
+        "mounts":
+          "/app":
+            "device": "fserv:/path"
+            "fstype": "nfs"
+            "options": "ro"
+            "actions":
+              - "enable"
