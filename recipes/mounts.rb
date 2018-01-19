@@ -18,6 +18,7 @@ node['beagle']['mounts'].each do |mount_point, mount_data|
     device mount_data['device']
     fstype mount_data['fstype']
     options mount_data['options']
+    action :enable
     notifies :run, 'execute[mountall]', :delayed
   end
 end
