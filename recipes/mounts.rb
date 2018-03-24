@@ -4,6 +4,13 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
+file '/etc/auto.direct' do
+  content '# This file controlled by beagle cookbook'
+  owner 'root'
+  group 'root'
+  mode '0644'
+end
+
 execute 'mountall' do
   command '/sbin/mountall'
   action :nothing
