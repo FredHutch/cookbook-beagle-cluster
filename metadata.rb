@@ -8,7 +8,7 @@ long_description 'Installs/Configures beagle-cluster nodes'
 issues_url 'https://github.com/FredHutch/beagle-cluster/issues'
 source_url 'https://github.com/FredHutch/beagle-cluster'
 
-version '0.2.44'
+version '0.2.45'
 supports 'ubuntu', '>= 14.04'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
