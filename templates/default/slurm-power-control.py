@@ -13,7 +13,8 @@ import boto3
 
 import logging
 logging.basicConfig(
-        filename='/var/log/slurm-llnl/slurm-power-control.log',
+        filename='/var/log/slurm-llnl/test-slurm-power-control.log',
+        format='%(asctime)s %(levelname)-8s %(message)s',
         level=logging.INFO
         )
 
@@ -28,8 +29,16 @@ import hostlist
 # downstream when it's time to actually perform an action (the remaining logic
 # of assembling the list of instances is identical in either case)
 
-action = os.path.basename(sys.argv[0])
-nodelist_raw = sys.argv[1]
+# ...unless there are two arguments on the command-line, in which case we
+# use argv[1] as the action, and argv[2] as the node list
+
+if len(sys.argv) == 2:
+    action = os.path.basename(sys.argv[0])
+    nodelist_raw = sys.argv[1]
+else:
+    action = os.path.basename(sys.argv[1])
+    nodelist_raw = sys.argv[2]
+
 logging.info("Starting: action {} on nodes {}".format(action, nodelist_raw))
 
 nodelist = hostlist.expand_hostlist(nodelist_raw)
