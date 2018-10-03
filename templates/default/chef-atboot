@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 ### BEGIN INIT INFO
 # Provides:          chef-client-single
 # Required-Start:    $local_fs $network
@@ -14,7 +14,7 @@ PATH=/sbin:/bin
 
 do_start () {
 	log_action_msg "Running chef-client"
-	exec /usr/bin/chef-client --once -l info
+  exec /usr/bin/chef-client -o 'role[beagle-node-atboot]' --once -l info
 }
 
 case "$1" in
