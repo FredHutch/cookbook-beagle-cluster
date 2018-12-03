@@ -13,7 +13,7 @@ import boto3
 
 import logging
 logging.basicConfig(
-        filename='/var/log/slurm-llnl/test-slurm-power-control.log',
+        filename='/var/log/slurm-llnl/slurm-power-control.log',
         format='%(asctime)s %(levelname)-8s %(message)s',
         level=logging.INFO
         )
