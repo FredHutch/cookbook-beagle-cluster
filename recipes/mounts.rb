@@ -11,11 +11,6 @@ file '/etc/auto.direct' do
   mode '0644'
 end
 
-execute 'mountall' do
-  command '/sbin/mountall'
-  action :nothing
-end
-
 node['beagle']['mounts'].each do |mount_point, mount_data|
   directory mount_point do
     recursive true
@@ -26,6 +21,5 @@ node['beagle']['mounts'].each do |mount_point, mount_data|
     fstype mount_data['fstype']
     options mount_data['options']
     action :enable
-    notifies :run, 'execute[mountall]', :delayed
   end
 end
