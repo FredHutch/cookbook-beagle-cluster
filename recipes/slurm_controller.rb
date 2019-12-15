@@ -31,7 +31,7 @@ mount node['beagle']['configs']['slurm_conf']['StateSaveLocation'] do
   device node['beagle']['configs']['state_save']['device']
   fstype node['beagle']['configs']['state_save']['fstype']
   options node['beagle']['configs']['state_save']['options']
-  action [:mount, :enable]
+  action %i[mount enable]
   not_if { node['beagle']['configs']['state_save'].empty? }
 end
 
